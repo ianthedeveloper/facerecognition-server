@@ -1,0 +1,26 @@
+{
+  "name": "facerecognition-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Building a server",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianthedeveloper/facerecognition-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ianthedeveloper/facerecognition-server/issues"
+  },
+  "homepage": "https://github.com/ianthedeveloper/facerecognition-server#readme",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.2"
+  }
+}
