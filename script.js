@@ -1,5 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import bcrypt from 'bcrypt-nodejs';
 
 
 const server = express();
@@ -37,6 +38,16 @@ server.get('/', (req, res) => {
 
 server.post('/signin', (req, res) => {
     console.log("Method:", req.method);
+
+    // // Load hash from your password DB.
+    // bcrypt.compare("p1", "$2a$10$w9z0qePYXLzguURnlXu2dubNXIqwVZnFmheeYKtHYSvpk23lS10gC", function(err, res) {
+    //     console.log("Res:", res);
+    // });
+    // bcrypt.compare("veggies", "$2a$10$w9z0qePYXLzguURnlXu2dubNXIqwVZnFmheeYKtHYSvpk23lS10gC", function(err, res) {
+    //     console.log("Res:", res)
+    // });
+
+
     if(req.body.name === database.users[0].name && req.body.password === database.users[0].password){
         res.json("Success!");
         console.log("Success signing in!")
@@ -50,6 +61,10 @@ server.post('/signin', (req, res) => {
 server.post('/register', (req, res) => {
     const { name, email, password } = req.body;
 
+    // bcrypt.hash(password, null, null, function(err, hash) {
+    //     console.log(hash);
+    // });
+    
     database.users.push(
         {
             id: 133,
@@ -101,8 +116,6 @@ server.post('/image', (req, res) => {
         res.status(400).json("INVALID USER ID")
     }
 })
-
-
 
 
 server.listen(3003, () => {
